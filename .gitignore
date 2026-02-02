@@ -17,5 +17,8 @@ node_modules
 .pnp.*
 
 
+#Rover
+bin/*
+
 # Build objs
 dist/*

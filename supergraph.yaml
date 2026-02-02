@@ -1,0 +1,10 @@
+federation_version: =2.3.2
+subgraphs:
+  films:
+    routing_url: https://localhost:4000/graphql
+    schema:
+      file: ./films.graphql
+  people:
+    routing_url: https://people.example.com
+    schema:
+      file: ./people.graphql

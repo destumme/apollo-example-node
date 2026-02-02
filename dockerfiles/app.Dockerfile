@@ -7,10 +7,10 @@ ENTRYPOINT ["/sbin/tini", "--"]
 
 WORKDIR /opt/graphql-service
 
-
-# Copies everything not in dockerignore, tsc already run, just dist
+# Only dist and yarn are included via dockerignore
 COPY . .
-RUN ls -al
+RUN chown node:node .
+
 RUN corepack enable
 RUN yarn install --immutable
 RUN yarn workspaces focus --production

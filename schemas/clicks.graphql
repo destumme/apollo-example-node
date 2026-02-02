@@ -1,0 +1,27 @@
+Scalar DateTime
+Scalar NonNegativeInt
+
+
+type Advertisement @key(fields: "id", resolvable: false){
+    id: ID!
+}
+
+type Click @key(fields: "advertisement { id }") @key(fields: "id") {
+    id: ID!
+    advertisement: Advertisement!
+    timestamp: DateTime!
+}
+
+input RecordClickInput {
+    advertisementId: ID!
+}
+
+type RecordClickPayload {
+    recorded: Boolean!
+    clickId: ID
+    spend: NonNegativeInt
+}
+
+type Mutation {
+    recordClick(clickEvent: RecordClickInput) : RecordClickPayload
+}

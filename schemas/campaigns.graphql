@@ -1,0 +1,19 @@
+Scalar Date
+Scalar NonNegativeInt
+
+
+type Advertisement @key(fields: "id") {
+    id: ID!
+    cost: NonNegativeInt
+    campaign: AdvertisementCampaign
+}
+
+
+type AdvertisementCampaign @key(fields: "id") {
+    id: ID!
+    ads: [Advertisement!]
+    startDate: Date
+    endDate: Date
+    "Monetary values are always in cents to avoid float math"
+    budget: NonNegativeInt 
+}
