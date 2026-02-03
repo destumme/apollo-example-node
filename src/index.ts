@@ -1,7 +1,16 @@
-// eslint-disable-next-line @typescript-eslint/require-await
-const main = async () => {
-    console.log("HELLO WORLD")
-}
+import { ApolloServer } from "@apollo/server";
 
-// eslint-disable-next-line @typescript-eslint/no-floating-promises
-main()
+import {
+  DateTimeTypeDefinition,
+  DateTimeResolver,
+  NonNegativeIntTypeDefinition,
+  NonNegativeIntResolver,
+} from "graphql-scalars";
+
+const server = new ApolloServer({
+  typeDefs: [DateTimeTypeDefinition, NonNegativeIntTypeDefinition],
+  resolvers: {
+    DateTime: DateTimeResolver,
+    NonNegativeInt: NonNegativeIntResolver,
+  },
+});

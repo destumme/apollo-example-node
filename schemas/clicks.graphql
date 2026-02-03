@@ -23,5 +23,5 @@ type RecordClickPayload {
 }
 
 type Mutation {
-    recordClick(clickEvent: RecordClickInput) : RecordClickPayload
+    recordClick(clickEvent: RecordClickInput): RecordClickPayload
 }
