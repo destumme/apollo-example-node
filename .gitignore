@@ -16,6 +16,8 @@ node_modules
 #!.yarn/cache
 .pnp.*
 
+#Rover
+bin/*
 
 # Build objs
 dist/*

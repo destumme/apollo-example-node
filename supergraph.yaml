@@ -1,0 +1,14 @@
+federation_version: =2.3.2
+subgraphs:
+  campaigns:
+    routing_url: https://localhost:4000/graphql
+    schema:
+      file: ./schemas/campaigns.graphql
+  clicks:
+    routing_url: https://localhost:4002/graphql
+    schema:
+      file: ./schemas/clicks.graphql
+  listings:
+    routing_url: https://localhost:4004/graphql
+    schema:
+      file: ./schemas/listings.graphql

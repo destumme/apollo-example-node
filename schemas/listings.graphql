@@ -1,0 +1,27 @@
+Scalar DateTime
+Scalar NonNegativeInt
+
+type Listing @key(fields: "id") {
+    id: ID!
+    url: String!
+    dateCreated: DateTime!
+}
+
+type Advertisement @key(fields: "id") {
+    id: ID!
+    listing: Listing
+}
+
+input CreateListingInput {
+    url: String
+    isAdvertisement: Boolean
+}
+
+type CreateListingPayload {
+    listing: Listing!
+}
+
+type Mutation {
+    createListing(createListingEvent: CreateListingInput): CreateListingPayload
+    createListings(events: [CreateListingInput!]!): [CreateListingPayload!]!
+}
